@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create movie object</title>
+</head>
+
+<body>
+    <!-- 37.	Write a program that creates an object representing a movie with properties like title, director, and rating. Then, display the object on the web page. -->
+
+    <h1>To create an object representing a movie with properties like title, director and rating</h1>
+    <div>
+        <form action="#">
+            <table>
+                <tr>
+                    <td><label for="title">Movie Title</label></td>
+                    <td><input type="text" id="title" name="title"></td>
+                </tr>
+                <tr>
+                    <td><label for="director">Director</label></td>
+                    <td><input type="text" id="director" name="director"></td>
+                </tr>
+                <tr>
+                    <td><label for="rating">Rating</label></td>
+                    <td><input type="range" name="rating" id="rating" max="5"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="button" id="btn">submit</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div>
+        <h3>Displaying the output in JSON format</h3>
+        <p id="result"></p>
+    </div>
+    <script>
+        let btn = document.querySelector("#btn")
+        let movieArr = []
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let title = document.querySelector("#title").value
+            let director = document.querySelector("#director").value
+            let rating = document.querySelector("#rating").value
+            function Movie(title, director, rating) {
+                this.title = title;
+                this.director = director;
+                this.rating = rating;
+            }
+            movieArr.push(new Movie(title, director, rating))
+            console.log(movieArr);
+            let result = document.querySelector("#result")
+            result.textContent = JSON.stringify(movieArr)
+        })
+    </script>
+</body>
+
+</html>

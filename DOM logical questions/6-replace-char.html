@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replace a character</title>
+</head>
+
+<body>
+    <!-- 36.	You are given a string. Write a program that replaces all occurrences of a particular character with another character and displays the result on a web page.
+
+        Given input:Skill sufuri,u,a
+        Expected Ouput:Skill safari -->
+
+    <h1>To replace all the occurence of a particular character with another character</h1>
+    <div>
+        <form action="#">
+            <table>
+                <tr>
+                    <td><label for="str">Enter the string</label></td>
+                    <td><input type="text" id="str" name="str" required></td>
+                </tr>
+                <tr>
+                    <td><label for="strFind">Enter the character to find</label></td>
+                    <td><input type="text" id="strFind" name="strFind" required></td>
+                </tr>
+                <tr>
+                    <td><label for="strReplace">Enter the character to replace</label></td>
+                    <td><input type="text" name="strReplace" id="strReplace"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="button" id="replace">Replace</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <p id="result"></p>
+    <script>
+        let replace = document.querySelector("#replace")
+        let result = document.querySelector("#result")
+
+        replace.addEventListener("click", (e) => {
+            e.preventDefault();
+            let str = document.querySelector("#str").value
+            let strFind = document.querySelector("#strFind").value
+            let strReplace = document.querySelector("#strReplace").value
+            if (str.includes(strFind)) {
+                let resultStr = str.replaceAll(strFind, strReplace)
+                result.textContent = resultStr
+            } else {
+                result.textContent = "character not found"
+            }
+        })
+
+    </script>
+</body>
+
+</html>

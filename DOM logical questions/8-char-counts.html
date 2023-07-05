@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counts of a character</title>
+</head>
+
+<body>
+    <!-- 38.	Write a program that uses a Map to store the count of each character in a given string and displays the result on the web page.
+
+        Given input:Skill safari
+        Expected output:
+        S: 1
+        k: 1
+        i: 2
+        l: 2
+        : 1
+        s: 1
+        a: 2
+        f: 1
+        r: 1 -->
+
+    <h1>Using Map to store the count of each character in a given string</h1>
+    <input type="text" id="str" placeholder="Enter a string">
+    <button type="button" id="btn">Count</button>
+    <div id="result"></div>
+    <script>
+        let btn = document.querySelector("#btn");
+        let result = document.querySelector("#result")
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let str = document.querySelector("#str").value  
+            let map = new Map();
+            let count = 1;
+            for (let i = 0; i < str.length; i++) {
+                if (!map.has(str[i])) {
+                    map.set(str[i], count)
+                } else {
+                    let c = Number(map.get(str[i]))
+                    c++;
+                    map.set(str[i], c)
+                }
+            }
+            let entries = map.entries()
+            for(const [key,value] of entries){
+                let p = document.createElement("p")
+                p.textContent = `${key}:${value}`
+                result.append(p)
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

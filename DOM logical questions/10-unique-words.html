@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Words</title>
+</head>
+
+<body>
+    <!-- 40.	Write a program that creates a Set of unique words from an array of sentences and displays the result on the web page.
+
+        Given Input:The quick brown fox", "jumps over the lazy dog", "The quick brown fox
+        Expected output:The, quick, brown, fox, jumps, over, the, lazy, dog -->
+
+    <h1>To create a set of unique words form an array of sentences</h1>
+    <input type="text" id="str" placeholder="Enter a string">
+    <button type="button" id="btn">Create Set</button>
+    <p id="result"></p>
+    <script>
+        let btn = document.querySelector("#btn");
+        let result = document.querySelector("#result")
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let str = document.querySelector("#str").value
+            let arr = str.split(" ")
+            let set = new Set(arr)
+            result.textContent = [...set].join(",")
+        })
+    </script>
+</body>
+
+</html>

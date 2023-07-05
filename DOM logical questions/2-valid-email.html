@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valid Email Address</title>
+    <style>
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 32.	You are given a string.Write a program that checks if a given string is a valid email address using logical operators and displays the result in web page.
+
+        Given input:xxxx@gmail.com
+        Expected output:Valid email -->
+
+    <h1>To check the validity of an Email</h1>
+    <input type="text" name="email" placeholder="Enter your Email" id="email">
+    <button id="btn">Submit</button>
+    <p id="result"></p>
+    <script>
+        let btn = document.querySelector("#btn")
+        let result = document.querySelector("#result")
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let email = document.querySelector("#email").value
+            console.log(email);
+            if (email.includes("@") && email.includes(".")) {
+                let atIndex = email.indexOf("@")
+                let dotIndex = email.lastIndexOf(".")
+                //checking whether atIndex comes before the dotIndex and also checking the string has atleast one character before the atIndex and after the dotIndex
+                if (atIndex < dotIndex && atIndex > 0 && dotIndex < email.length - 1) {
+                    result.textContent = "Valid Email address"
+                    result.classList.remove("invalid")
+                    result.classList.add("valid")
+                } else {
+                    invalid()
+                }
+            } else {
+                invalid()
+            }
+
+            function invalid() {
+                result.textContent = "Invalid Email Address"
+                result.classList.remove("valid")
+                result.classList.add("invalid")
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

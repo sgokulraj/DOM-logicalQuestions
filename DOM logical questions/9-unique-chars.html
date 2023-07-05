@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Characters</title>
+</head>
+
+<body>
+    <!-- 39.	Write a program that creates a Set of unique characters from a given string and displays the result on the web page.
+
+        Given input:Skill safari
+        Expected Output:Skil safr -->
+
+    <h1>To create a set of unique characters from a given string</h1>
+    <input type="text" id="str" placeholder="Enter a string">
+    <button type="button" id="btn">Create Set</button>
+    <p id="result"></p>
+    <script>
+        let btn = document.querySelector("#btn");
+        let result = document.querySelector("#result")
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let str = document.querySelector("#str").value
+            let arr = str.split("")
+            let set = new Set(arr)
+            result.textContent = [...set].join("")
+        })
+    </script>
+</body>
+
+</html>

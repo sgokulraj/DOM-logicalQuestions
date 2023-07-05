@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Row</title>
+    <style>
+        button {
+            margin-left: 20px;
+        }
+
+        table {
+            margin: 20px;
+            text-align: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>To add a new row to the table when the user fills out a form and clicks on the submit button</h1>
+    <div>
+        <form>
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" />
+            </p>
+            <p>
+                <label for="age">Age:</label>
+                <input type="text" id="age" placeholder="Enter your Age" />
+            </p>
+            <p>
+                <label for="city">City:</label>
+                <input type="text" id="city" placeholder="Enter your City" />
+            </p>
+            <button type="submit" id="btn">Submit</button>
+        </form>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>25</td>
+                    <td>Bangalore</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let btn = document.querySelector("#btn")
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let tbody = document.querySelector("tbody")
+            let tr = document.createElement("tr")
+            tbody.append(tr)
+            let name = document.querySelector("#name").value
+            let age = document.querySelector("#age").value
+            let city = document.querySelector("#city").value
+            let arr = [name, age, city]
+            for (let i = 0; i < arr.length; i++) {
+                let td = document.createElement("td")
+                td.textContent = arr[i]
+                tr.append(td)
+            }
+        })
+        table = document.querySelector("table")
+        console.log(table.rows[1].cells[0].textContent);
+    </script>
+</body>
+
+</html>

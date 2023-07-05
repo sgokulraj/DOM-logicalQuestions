@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference</title>
+</head>
+
+<body>
+    <!-- 31.	You are given an array of numbers. Write a program that finds the difference between the largest and smallest numbers in the array and displays the result on a web page.
+
+        Given input:2, 5, 1, 8, 3, 9.
+        Expected output:8 -->
+
+    <div id="result">
+        <h1>To find the difference between the largest and smallest numbers in the Array</h1>
+    </div>
+    <script>
+        let arr = [2, 5, 1, 8, 9]
+        let minNum = Math.min(...arr)
+        let maxNum = Math.max(...arr)
+        let result = document.querySelector("#result")
+        let p1 = document.createElement("p")
+        p1.textContent = `The minimum number = ${minNum}`
+        result.append(p1)
+        let p2 = document.createElement("p")
+        p2.textContent = `The maximum number = ${maxNum}`
+        result.append(p2)
+        let p3 = document.createElement("p")
+        p3.textContent = `Difference = ${maxNum - minNum}`
+        result.append(p3)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Columns</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .select,
+        table {
+            margin: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 35.	Write a program to show/hide certain columns in the table based on a user selection and display result on web page. -->
+    
+    <h1>To show/Hide an column in the table based on a user Selection</h1>
+    <div class="select">
+        <select name="col" id="col">
+            <option value="1">Column 1</option>
+            <option value="2">Column 2</option>
+            <option value="3">Column 3</option>
+        </select>
+        <button id="hideBtn">Hide</button>
+        <button id="showBtn">Show</button>
+        <button id="toggleBtn">Toggle</button>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th><span>Column 1</span></th>
+                    <th><span>Column 2</span></th>
+                    <th><span>Column 3</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>item 1</td>
+                    <td>item 2</td>
+                    <td>item 3</td>
+                </tr>
+                <tr>
+                    <td>item 4</td>
+                    <td>item 5</td>
+                    <td>item 6</td>
+                </tr>
+                <tr>
+                    <td>item 7</td>
+                    <td>item 8</td>
+                    <td>item 9</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let hide = document.querySelector("#hideBtn")
+        hide.addEventListener("click", (e) => {
+            e.preventDefault();
+            let selectVal = document.querySelector("#col").value // to know which options is selected
+            let rows = document.querySelector("table").rows
+            // to hide the 1st row
+            // rows[1].hidden = true;
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].children[selectVal - 1].hidden = true
+            }
+        })
+
+        let show = document.querySelector("#showBtn")
+        show.addEventListener("click", (e) => {
+            e.preventDefault();
+            let selectVal = document.querySelector("#col").value
+            let rows = document.querySelector("table").rows
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].children[selectVal - 1].hidden = false
+            }
+        })
+
+        let toggle = document.querySelector("#toggleBtn")
+        toggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            let selectVal = document.querySelector("#col").value
+            let rows = document.querySelector("table").rows
+            for (let i = 0; i < rows.length; i++) {
+                if (rows[i].children[selectVal - 1].hidden) {
+                    rows[i].children[selectVal - 1].hidden = false
+                }else{
+                    rows[i].children[selectVal - 1].hidden = true
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
